@@ -9,6 +9,10 @@
         </p>
 
         <p class="mt-5">
+            For styling, it uses <a href="https://tailwindcss.com/" class="text-blue-600 hover:text-blue-400 underline">Tailwind CSS</a>
+        </p>
+
+        <p class="mt-5">
             It's also using <a href="https://nuxt.com/modules/icon" class="text-blue-600 hover:text-blue-400 underline">Nuxt Icons!</a>
             <Icon name="vscode-icons:file-type-nuxt" class="h-5 w-5" />
         </p>
