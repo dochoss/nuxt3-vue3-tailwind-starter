@@ -1,6 +1,10 @@
-# Nuxt 3 Minimal Starter
+# Based on the Nuxt 3 Minimal Starter
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more about Nuxt.
+
+For styling, the template uses [Tailwind CSS](https://nuxt.com/docs)
+
+It also uses the [Nuxt Icons](https://nuxt.com/modules/icon) module which has thousands of ready-to-use icons!
 
 ## Setup
 
