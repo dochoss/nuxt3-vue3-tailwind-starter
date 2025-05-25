@@ -6,3 +6,6 @@ node_modules
 .output
 .env
 dist
+
+# Ensure copilot instructions are tracked
+!.github/copilot-instructions.md
