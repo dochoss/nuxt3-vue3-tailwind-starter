@@ -26,7 +26,7 @@ This file tracks work completed and plans future work for the project.
 
 ## In Progress
 
-- [ ]
+- [ ] Verify setup script end-to-end
 
 ## Planned Tasks
 
