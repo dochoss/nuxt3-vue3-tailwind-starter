@@ -19,6 +19,8 @@ This project is a template for Nuxt 3 projects using Tailwind CSS, Nuxt Tailwind
 ### Nuxt 3
 
 - Use `<script setup>` syntax for all Vue components.
+- Order components with `<template>`, `<script setup>`, and `<style>` blocks in that order.
+- Use `NuxtLink` for internal navigation and `<a>` for external links.
 - Use Nuxt’s auto-imported composables (e.g., `useRoute`, `useFetch`) instead of manual imports.
 - Place pages in the `/pages` directory and components in `/components`.
 - Use the `definePageMeta` and `defineNuxtComponent` helpers where appropriate.
@@ -51,10 +53,6 @@ This project is a template for Nuxt 3 projects using Tailwind CSS, Nuxt Tailwind
 ## Example Usage
 
 ```vue
-<script setup>
-// No need to import Nuxt composables or components manually
-</script>
-
 <template>
   <div class="p-8 bg-white rounded-lg shadow">
     <Icon name="heroicons-outline:home" class="w-6 h-6 text-blue-500" />
@@ -62,6 +60,10 @@ This project is a template for Nuxt 3 projects using Tailwind CSS, Nuxt Tailwind
     <NuxtImg src="/images/example.jpg" width="400" height="300" class="rounded" />
   </div>
 </template>
+
+<script setup>
+// No need to import Nuxt composables or components manually
+</script>
 ```
 
 ---

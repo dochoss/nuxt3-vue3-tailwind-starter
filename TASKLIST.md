@@ -10,6 +10,11 @@ This file tracks work completed and plans future work for the project.
 - [x] Created TASKLIST.md for project tracking
 - [x] Updated README.md with vibe coding instructions
 - [x] Made repository Azure Developer CLI (azd) compatible
+- [x] Created default Nuxt layout and sample pages
+- [x] Created NavSection component
+- [x] Created FooterSection component
+- [x] Created GitHub Actions workflow for Azure Static Web Apps deployment using Node version 24
+- [x] Created alternative Azure Developer CLI (azd) deployment workflow
 
 ## In Progress
 
@@ -22,7 +27,6 @@ This file tracks work completed and plans future work for the project.
 - [ ] Set up TypeScript configurations and types
 - [ ] Add testing framework setup
 - [ ] Add ESLint and Prettier configuration
-- [ ] Set up CI/CD pipeline
 
 ## Future Considerations
 
@@ -35,4 +39,4 @@ This file tracks work completed and plans future work for the project.
 
 ---
 
-*Last updated: May 25, 2025 - Added Azure Developer CLI (azd) compatibility with azure.yaml and updated bicep infrastructure*
+*Last updated: May 25, 2025 - Created GitHub Actions workflows for Azure Static Web Apps deployment and azd deployment*
