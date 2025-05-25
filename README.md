@@ -16,7 +16,7 @@ This template is designed for **flow state coding** - where you and GitHub Copil
 
 - **[Nuxt 3](https://nuxt.com/docs/getting-started/introduction)** - The intuitive Vue framework
 - **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework  
-- **[NuxtIcon](https://nuxt.com/modules/icon)** - Thousands of ready-to-use icons (not HeroIcons!)
+- **[NuxtIcon](https://nuxt.com/modules/icon)** - Thousands of ready-to-use icons (including HeroIcons!)
 - **[Nuxt Image](https://nuxt.com/modules/image)** - Optimized image handling
 - **[Nuxt Tailwind](https://nuxt.com/modules/tailwindcss)** - Seamless Tailwind integration
 
@@ -62,10 +62,45 @@ Build for static site deployment (through storage or Azure Static Web Apps):
 npm run generate
 ```
 
-## Deployment with Infrastructure as Code (IaC)
-Use Azure Bicep to deploy, from `/infra` folder
-```
-az deployment group create --name <DEPLOYMENT_NAME> -g <RG_NAME> --parameters main.bicepparam
+## 🚀 Deployment to Azure
+
+This template is configured for easy deployment to Azure using the Azure Developer CLI (azd).
+
+### Prerequisites
+
+1. Install [Azure Developer CLI (azd)](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/install-azd)
+2. Install [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+3. Have an Azure subscription
+
+### Deploy with Azure Developer CLI
+
+```bash
+# Initialize and deploy (first time)
+azd up
+
+# Or step by step:
+azd auth login              # Authenticate with Azure
+azd init                   # Initialize the project (if not already done)
+azd provision              # Create Azure resources
+azd deploy                 # Deploy the application
+
+# For subsequent deployments (code changes only)
+azd deploy
+
+# To tear down all resources
+azd down
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+The deployment will create:
+- Azure Static Web App for hosting your Nuxt application
+- Resource Group to contain all resources
+- Automatic CI/CD integration with your repository (if connected)
+
+### Manual Deployment (Alternative)
+
+If you prefer manual deployment with Azure CLI:
+```bash
+az deployment sub create --location eastus2 --template-file infra/main.bicep --parameters environmentName=<ENV_NAME> location=<LOCATION>
+```
+
+Check out the [Azure deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

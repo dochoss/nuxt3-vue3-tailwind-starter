@@ -1,31 +1,33 @@
 @minLength(3)
 @maxLength(30)
-param swaName string
+param name string
 
-param swaLocation string = resourceGroup().location
+param location string = resourceGroup().location
 
-param swaTags object = {
-  
-}
+param tags object = {}
 
-param swaSku object = {
+param sku object = {
   name: 'Free'
   tier: 'Free'
 }
 
-param repositoryUrl string
-param repositoryBranchName string
+param repositoryUrl string = ''
+param repositoryBranchName string = 'main'
 
 resource swa 'Microsoft.Web/staticSites@2022-09-01' = {
-  name: swaName
-  location: swaLocation
-  tags: swaTags
-  sku: swaSku
+  name: name
+  location: location
+  tags: union(tags, { 'azd-service-name': 'web' })
+  sku: sku
   properties: {
     allowConfigFileUpdates: true
     branch: repositoryBranchName
-    provider: 'GitHub'
+    provider: repositoryUrl != '' ? 'GitHub' : 'None'
     repositoryUrl: repositoryUrl
     stagingEnvironmentPolicy: 'Enabled'
   }
 }
+
+output staticWebAppDefaultHostname string = 'https://${swa.properties.defaultHostname}'
+output staticWebAppId string = swa.id
+output staticWebAppName string = swa.name
