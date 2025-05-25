@@ -100,6 +100,8 @@ npm run generate
 
 This template is configured for easy deployment to Azure Static Web Apps using the SWA CLI.
 
+> 💡 **Quick Start**: See [DEPLOYMENT-EXAMPLES.md](./DEPLOYMENT-EXAMPLES.md) for real-world deployment scenarios and step-by-step examples.
+
 ### Prerequisites
 
 1. Install [SWA CLI](https://azure.github.io/static-web-apps-cli/docs/use/install)
@@ -145,9 +147,90 @@ This template includes a GitHub Actions workflow for automated deployment to Azu
 **Automated deployment** with GitHub integration and PR previews.
 
 **Setup:**
-1. Create an Azure Static Web App in the Azure portal
-2. Get the deployment token from the Static Web App settings
-3. Add the token as a repository secret named `AZURE_STATIC_WEB_APPS_API_TOKEN`
+
+#### Option A: Automated Setup (Recommended)
+
+Use the included PowerShell script to automate the Azure setup:
+
+```powershell
+# Basic setup (requires Azure CLI)
+.\setup-azure-swa.ps1 -AppName "my-nuxt-app" -GitHubRepoUrl "https://github.com/username/repo"
+
+# Auto-create GitHub secret (requires Azure CLI + GitHub CLI)
+.\setup-azure-swa.ps1 -AppName "my-nuxt-app" -GitHubRepoUrl "https://github.com/username/repo" -CreateGitHubSecret
+
+# All options:
+.\setup-azure-swa.ps1 `
+    -AppName "my-nuxt-app" `
+    -GitHubRepoUrl "https://github.com/username/repo" `
+    -GitHubRepoBranch "main" `
+    -ResourceGroup "my-rg" `
+    -Location "eastus" `
+    -CreateGitHubSecret
+```
+
+The script will:
+- ✅ Check if Azure CLI (and optionally GitHub CLI) is installed
+- 🔐 Verify you're logged in to Azure (and GitHub if using -CreateGitHubSecret)
+- 📦 Create a resource group
+- 🌐 Create the Azure Static Web App  
+- 🔑 Retrieve the deployment token
+- 🤖 **Automatically create GitHub repository secret** (if -CreateGitHubSecret flag used)
+- 📋 Display setup instructions
+
+**Prerequisites for script:**
+- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) installed
+- Azure subscription access
+- [GitHub CLI](https://cli.github.com/) installed (optional, for automatic secret creation)
+- GitHub repository access (if using -CreateGitHubSecret)
+
+**Script Parameters:**
+- `AppName` (required): Name for your Azure Static Web App
+- `GitHubRepoUrl` (required): Your GitHub repository URL
+- `GitHubRepoBranch` (optional): Branch to deploy from (default: "main")
+- `ResourceGroup` (optional): Resource group name (default: "{AppName}-rg")
+- `Location` (optional): Azure region (default: "centralus")
+- `Sku` (optional): Pricing tier (default: "Free")
+- `CreateGitHubSecret` (switch): Automatically create GitHub repository secret
+
+**Choose Your Option:**
+- 🚀 **Recommended**: Use `-CreateGitHubSecret` for fully automated setup (requires GitHub CLI)
+- ⚡ **Quick**: Use without `-CreateGitHubSecret` and manually add the secret to GitHub
+- 📋 **Manual**: Follow the manual setup steps below if you prefer GUI-based setup
+
+#### Option B: Manual Setup
+
+#### Step 1: Create Azure Static Web App
+1. Go to the [Azure portal](https://portal.azure.com/)
+2. Click "Create a resource" → Search for "Static Web App" → Create
+3. Fill in the basic details:
+   - **Subscription**: Choose your subscription
+   - **Resource Group**: Create new or use existing
+   - **Name**: Choose a unique name for your app
+   - **Plan type**: Free (for getting started)
+   - **Region**: Choose your preferred region
+4. For **Source**, select "Other" (we'll deploy via GitHub Actions)
+5. Click "Review + create" → "Create"
+
+#### Step 2: Get the Deployment Token
+1. Once your Static Web App is created, go to the resource
+2. In the left menu, click "Overview"
+3. Click "Manage deployment token" button
+4. Copy the deployment token (keep this secure!)
+
+#### Step 3: Add GitHub Repository Secret
+1. Go to your GitHub repository
+2. Click "Settings" tab → "Secrets and variables" → "Actions"
+3. Click "New repository secret"
+4. Name: `AZURE_STATIC_WEB_APPS_API_TOKEN`
+5. Value: Paste the deployment token from Step 2
+6. Click "Add secret"
+
+#### Step 4: Test the Workflow
+1. Push code to the `main` branch or create a pull request
+2. Go to the "Actions" tab in your GitHub repository
+3. Watch the deployment workflow run
+4. Once complete, your app will be live at the URL shown in the Azure portal
 
 **Features:**
 - Automatic deployment on pushes to `main`

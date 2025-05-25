@@ -11,5 +11,9 @@ dist
 swa-cli.config.json
 .swa/
 
+# Azure secrets (if saved locally)
+azure-token.txt
+deployment-token.txt
+
 # Ensure copilot instructions are tracked
 !.github/copilot-instructions.md

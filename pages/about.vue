@@ -142,16 +142,15 @@
         <Icon name="simple-icons:microsoftazure" class="w-16 h-16 text-blue-600 mx-auto mb-6" />
         <h2 class="text-3xl font-bold text-gray-900 mb-4">
           One-Command Deployment
-        </h2>
-        <p class="text-lg text-gray-600 mb-8">
-          Deploy to Azure Static Web Apps with a single command using Azure Developer CLI
+        </h2>        <p class="text-lg text-gray-600 mb-8">
+          Deploy to Azure Static Web Apps with automated PowerShell script and GitHub Actions
         </p>
         
         <div class="bg-white rounded-lg p-6 shadow-sm">
           <div class="text-left">
-            <p class="text-sm text-gray-600 mb-2">Deploy to Azure:</p>
+            <p class="text-sm text-gray-600 mb-2">Setup Azure deployment:</p>
             <code class="block bg-gray-900 text-green-400 p-4 rounded text-sm font-mono">
-              azd up
+              .\setup-azure-swa.ps1 -AppName "my-app" -GitHubRepoUrl "https://github.com/user/repo" -CreateGitHubSecret
             </code>
           </div>
         </div>

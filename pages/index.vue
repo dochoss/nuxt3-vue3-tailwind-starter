@@ -107,10 +107,9 @@
           <div class="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
             <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
               <Icon name="simple-icons:microsoftazure" class="w-6 h-6 text-blue-600" />
-            </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Azure Ready</h3>
+            </div>            <h3 class="text-xl font-semibold text-gray-900 mb-2">Azure Ready</h3>
             <p class="text-gray-600">
-              One-command deployment to Azure Static Web Apps using Azure Developer CLI (azd).
+              Automated deployment to Azure Static Web Apps with PowerShell script and GitHub Actions integration.
             </p>
           </div>
         </div>
@@ -150,9 +149,8 @@
             <div class="text-center">
               <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-sm font-bold">
                 3
-              </div>
-              <h3 class="font-semibold text-gray-900 mb-2">Deploy to Azure</h3>
-              <code class="text-sm bg-gray-100 px-3 py-1 rounded text-gray-800">azd up</code>
+              </div>              <h3 class="font-semibold text-gray-900 mb-2">Deploy to Azure</h3>
+              <code class="text-sm bg-gray-100 px-3 py-1 rounded text-gray-800">.\setup-azure-swa.ps1</code>
             </div>
           </div>
         </div>
