@@ -13,12 +13,14 @@ This file tracks work completed and plans future work for the project.
 - [x] Created default Nuxt layout and sample pages
 - [x] Created NavSection component
 - [x] Created FooterSection component
-- [x] Created GitHub Actions workflow for Azure Static Web Apps deployment using Node version 24
-- [x] Created alternative Azure Developer CLI (azd) deployment workflow
+- [x] Created GitHub Actions workflow for Azure Static Web Apps deployment
+- [x] Added comprehensive CI/CD documentation to README.md
+- [x] Removed Azure Developer CLI (azd) compatibility to simplify setup
+- [x] Updated documentation to focus on SWA CLI for manual deployments
 
 ## In Progress
 
-- [ ] 
+- [ ]
 
 ## Planned Tasks
 
@@ -39,4 +41,4 @@ This file tracks work completed and plans future work for the project.
 
 ---
 
-*Last updated: May 25, 2025 - Created GitHub Actions workflows for Azure Static Web Apps deployment and azd deployment*
+*Last updated: May 25, 2025 - Simplified deployment setup by removing azd compatibility and focusing on SWA CLI for manual deployments*

@@ -7,5 +7,9 @@ node_modules
 .env
 dist
 
+# SWA CLI
+swa-cli.config.json
+.swa/
+
 # Ensure copilot instructions are tracked
 !.github/copilot-instructions.md
