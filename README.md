@@ -25,7 +25,7 @@ pnpm install --shamefully-hoist
 
 Start the development server on http://localhost:3000
 
-```bash
+```
 npm run dev
 ```
 
@@ -33,14 +33,25 @@ npm run dev
 
 Build the application for production:
 
-```bash
+```
 npm run build
 ```
 
 Locally preview production build:
 
-```bash
+```
 npm run preview
+```
+
+Build for static site deployment (through storage or Azure Static Web Apps):
+```
+npm run generate
+```
+
+## Deployment with Infrastructure as Code (IaC)
+Use Azure Bicep to deploy, from `/infra` folder
+```
+az deployment group create --name <DEPLOYMENT_NAME> -g <RG_NAME> --parameters main.bicepparam
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
