@@ -22,7 +22,7 @@
               Learn More
             </NuxtLink>
             <a 
-              href="https://github.com"
+              href="https://github.com/dochoss/nuxt3-vue3-tailwind-starter"
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex items-center px-6 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white hover:bg-opacity-10 transition-colors"
