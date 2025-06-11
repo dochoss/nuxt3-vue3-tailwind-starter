@@ -1,0 +1,19 @@
+node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
+dist
+
+# SWA CLI
+swa-cli.config.json
+.swa/
+
+# Azure secrets (if saved locally)
+azure-token.txt
+deployment-token.txt
+
+# Ensure copilot instructions are tracked
+!.github/copilot-instructions.md
