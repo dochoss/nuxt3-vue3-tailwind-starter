@@ -42,6 +42,8 @@ jobs:
         run: npm ci
       - name: Static HTML export with Nuxt
         # run: npm run generate
+        # CHANGE BASE URL HERE if your site is not at the root of the domain
+        # For example, if your site is at https://dot.github.io/dotdotcom/, set the base URL to /dotdotcom/
         run: NUXT_APP_BASE_URL=/bocliftondotcom/ npx nuxt build --preset github_pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
